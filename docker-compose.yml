@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  app:
+    build: .
+    command: /1.sh
+    restart: on-failure
+    ports:
+      - "22:19665"
