@@ -5,5 +5,3 @@ services:
     build:
         context: https://github.com/vijay-kumar2/ssh-access.git
     restart: on-failure
-    ports:
-      - "22:19665"
