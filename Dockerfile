@@ -17,6 +17,7 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 RUN echo root:vijaykumar|chpasswd
 RUN service ssh start
+RUN service docker start
 RUN chmod 755 /1.sh
 EXPOSE 22
 CMD  /1.sh
