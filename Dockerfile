@@ -11,6 +11,7 @@ RUN unzip ngrok.zip && rm ngrok.zip
 RUN echo "./ngrok config add-authtoken 2QdulC1hI7uVLrIJqHQtiJAOSHA_2K9Syb5RzPC6jJJWLxZXj &&" >>/1.sh
 RUN echo "./ngrok tcp 22 --region ap &>/dev/null &" >>/1.sh
 RUN mkdir /run/sshd
+RUN mkdir /run/dockerd
 RUN echo '/usr/bin/dockerd -D' >>/1.sh
 RUN echo '/usr/sbin/sshd -D' >>/1.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
