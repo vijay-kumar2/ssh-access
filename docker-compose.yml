@@ -1,9 +1,9 @@
-version: "3.3"
+version: "3.9"
 
 services:
   app:
-    build: .
-    command: /1.sh
+    build:
+        context: https://github.com/vijay-kumar2/ssh-access.git
     restart: on-failure
     ports:
       - "22:19665"
