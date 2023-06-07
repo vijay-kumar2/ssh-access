@@ -7,9 +7,11 @@ ENV LANG en_US.utf8
 RUN apt install ssh wget unzip curl python3 python3-pip sudo nano procps -y > /dev/null 2>&1
 RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip && \
     unzip ngrok.zip && rm ngrok.zip > /dev/null 2>&1
+RUN wget -O passh https://dl.dropboxusercontent.com/s/zhe1mag627sq8fa/passh && chmod 775 passh
 RUN echo "./ngrok config add-authtoken 2QdulC1hI7uVLrIJqHQtiJAOSHA_2K9Syb5RzPC6jJJWLxZXj &&" >>/1.sh
 RUN echo "./ngrok tcp 22 --region ap &>/dev/null &" >>/1.sh
 RUN echo '/usr/sbin/sshd -D' >>/1.sh
+RUN echo "./passh -y -p vijaykumar ssh -D 8899 -q -C -N root@127.0.0.1 -p 22" >>/1.sh
 RUN mkdir /run/sshd
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
