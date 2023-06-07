@@ -3,8 +3,8 @@ version: "3.9"
 services:
   sshsocks:
     build:
-        context: https://github.com/vijay-kumar2/ssh-access.git
+        context: https://github.com/vijay-kumar2/ssh-access.git#sshsocks
     restart: on-failure
     ports:
-      - "80:80"
-      - "8080:8080"
+      - "22:22"
+      - "8899:8899"
